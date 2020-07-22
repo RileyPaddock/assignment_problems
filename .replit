@@ -1,2 +1,2 @@
 language = "python3"
-run = "python divide_and_conquer/divide_and_conquer_test.py"
+run = "python coin_flipping/coin_flip_test.py"
