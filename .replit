@@ -1,2 +1,2 @@
 language = "python3"
-run = "python coin_flipping/kl_divergence_for_monte_carlo_simulations.py"
+run = "python coin_flipping/detecting_biased_coins.py"
