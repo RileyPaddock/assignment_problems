@@ -1,4 +1,6 @@
 import matplotlib.pyplot as plt
+import sys
+sys.path.append('coin_flipping_src')
 from monte_carlo import monte_carlo
 from probability import probability
 plt.style.use('bmh')
