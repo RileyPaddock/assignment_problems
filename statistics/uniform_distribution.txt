@@ -1,0 +1,45 @@
+p(x)={k x∈[a,b]
+     {0 x∉[a,b]
+A)Show p(x) is a valid probability distribution when the Sum of p(x) is 1
+
+    So Sum(p(x)) = Integral(p(x),-infinity to infinity) = 
+    Integral(0, -infinity to a) + Integral(k, a to b) + Integral(0, b to infinity) = 
+    0 + (kb - ka) + 0 = k(b-a). 
+    This is a valid distribution if k(b-a) = 1 or rather k = 1/(b-a)
+
+B)Given that  X∼p,  compute the cumulative distribution  P(X≤x).
+
+    cumulative distribution of p(X<=x) = Integral(p(x), -infinity to x) = 
+    If x < a:
+        Integral(0, -infinity to x) = 0
+    if a<x<b:
+        Integral(k, a to x) = kx-ka = k(x-a)
+    if x>b:
+        Integral(k, a to b) + Integral(0, b to x) = kb-ka + 0 = k(b-a)
+
+    P(X<=x) = {0      x<a
+              {k(x-a) a < x < b
+              {k(b-a) x > b
+
+C) Given that  X∼p,  compute  E[X].
+
+    E[X] = Integral(x*p(x), -infinity to infinity) = 
+    Integral(x*0, -infinity to a) + Integral(kx, a to b) + 
+    Integral(x*0, b to infinity) = 
+    0 + (kx^2/2, a to b) + 0 = 
+    k(b^2-a^2)/2
+
+D) Given that  X∼p2,  compute  Var[X].
+
+    Var[X] = Integral((x-E[X])^2 * p(x), -infinity to infinity) = 
+    Integral((x-E[X])^2 * 0, -infinity to a) + 
+    Integral((x-(k(b^2-a^2)/2)^2 * k, a to b) + 
+    Integral((x-E[X])^2 * 0, b to infinity)
+    The first and third integrals evaluate to 0 but the Second one reduces to 
+    Integral(x^2k - k^2(b^2 - a^2)x + (k^3(b^2 - a^2)^2)/4, a to b) = 
+    (kx^3/3 - (k^2*x^2*(b^2 - a^2)^2)/2 + (k^3*x*(b^2 - a^2)^2)/4, a to b)
+    f(b) = kb^3/3 - (k^2*b^2*(b^2 - a^2)^2)/2 + (k^3*b*(b^2 - a^2)^2)/4
+    f(a) = ka^3/3 - (k^2*a^2*(b^2 - a^2)^2)/2 + (k^3*a*(b^2 - a^2)^2)/4
+    f(b) - f(a) = 
+    k(b^3 - a^3)/3 + k^2(-b^4 - a^4)/2 + k^3(b^2 - a^2)^3(b-a)/4
+
