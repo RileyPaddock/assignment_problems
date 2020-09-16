@@ -1,2 +1,2 @@
 language = "python3"
-run = "python coin_flipping_src/coin_flip_likeliehood.py"
+run = "python statistics/assignment_41_statistics.py"

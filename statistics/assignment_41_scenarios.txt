@@ -1,0 +1,7 @@
+a. Give a real-world scenario in which something could go drastically wrong if you mistakenly use a logistic regression when the data is actually linear.
+
+If you try and model the amount of a substance to give to a person with a logistic regression you would think you could give them 100000mg and it would be the same as if you gave them 10mg. However a linear regression would let you know that thats insane.
+
+b. Give a real-world scenario in which something could go drastically wrong if you mistakenly use a linear regression when the data is actually sigmoid-shaped.
+
+If you try and model a population with a linear regression you would think that there is no limit on people and once you go over the carying capacity of the population a lot of people would die but a logistic regression would allow you to know that carying capacity.

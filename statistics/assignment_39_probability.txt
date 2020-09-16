@@ -1,0 +1,68 @@
+A:
+
+Bus A arrives at 8am but is x minutes late with  x∼U(0,15).  
+Bus B arrives at 8:05 but with  x∼U(0,10).  
+The bus ride is 20 minutes and you need to arrive at work by 8:30.
+
+Tip: Remember that  U(a,b)  means the uniform distribution on  [a,b]. 
+
+If you take bus A, what time do you expect to arrive at work?
+The Bus is a 20 minute ride. Bus A arrives at 8am but is between 0 and 15 minutes late. So its an average of 7.5 minutes late. So on avere you would expect to arrive at work at 8:27
+
+If you take bus B, what time do you expect to arrive at work?
+The Bus is a 20 minute ride. Bus A arrives at 8:05 am but is between 0 and 15 minutes late. So its an average of 5 minutes late. So on avere you would expect to arrive at work at 8:30
+
+If you take bus A, what is the probability that you will arrive on time to work?
+Since the ride is 20 mins and it arrives at 8:00 if the bus arrives less than 10 minutes late you will arrive at work on time so you have a 11/16(68%) chance to arrive on time.
+
+If you take bus B, what is the probability that you will arrive on time to work?
+Since the ride is 20 mins and it arrives at 8:05 if the bus arrives less than 5 minutes late you will arrive at work on time so you have a 5/11(45%) chance to arrive on time.
+
+
+B:
+
+Continuing the scenario above, there is a third option that you can use to get to work: you can jump into a wormhole and (usually) come out almost instantly at the other side. The only issue is that time runs differently inside the wormhole, and while you're probably going to arrive at the other end very quickly, there's a small chance that you could get stuck in there for a really long time.
+
+The number of seconds it takes you to come out the other end of the wormhole follows an exponential distribution with parameter  λ=10,  meaning that  x∼p(x)  where
+p(x)={10e^(−10x) if x > 0
+     {0          otherwise
+ 
+How long do you expect it to take you to come out of the wormhole?
+average[p(x)] = E[p(x)] = Integral(x*p(x), -infinity to infinity) = 
+Integral(10xe^(-10x), 0 to infinity) = (-x*e^(-10x) - e^(-10x)/10, 0 to infinity) = 
+f(infinity) = (-(infinity)*e^(-infinity) - e^(-infinity)/10) = 0
+f(0) = (0*e^(0) - e^(0)/10) = -1/10
+f(infinty) - f(0) = 0 - (-1/10) = 1/10
+It will take 0.1 seconds on average
+
+What's the probability of taking longer than a minute to come out of the wormhole?
+probability of x > 60 = P(60 < x < infinity) = Integral(p(x), 60 to infinity) = Integral(10e^(-10x), 60 to infinity) = (-e^(-10x), 0 to 60) = -e^(-10*(infinity)) - -e^(-10*60) = -e^(-infinity) - (-e^(-600)) = 0 + e^(-600) = 2.65e^-261
+you have a 2.65e^-259 percent chance of being in the wormhole for > 1 minute
+
+Fill in the blank: the probability of coming out of the wormhole within 1.15129255 seconds is  99.999%. 
+
+Integral(10*e^-10x, 0 to p) = (-e^(-10x), 0 to p) = -e^(-10*p) - (-e^0) = 1 - e^(-10 *p)
+solve this equatioin for .99999
+1-e^(-10*p) = 0.99999
+0.00001 = e^(-10*p)
+ln(0.00001) = -10*p
+ln(0.00001)/-10 = p
+p = 1.15129255
+
+What is the probability that it would take you longer than a day to come out of the wormhole? Give the exact answer, not a decimal approximation.
+seconds in a day = 86,400
+probability it will take more than 86,400 seconds = 
+Integral(p(x),86,400 to infinity) = Integral(10e^(-10x), 86,400 to infinity) = (-e^(-10x), 86400 to infinity) = -e^(-864,000) - -e^(infinity) = 0 - 0 = 0
+
+Your friend says that you shouldn't use the wormhole because there's always a chance that you might get stuck in it for over a week, and if you use the wormhole twice per day, then that'll probably happen sometime within your lifetime. Is this a reasonable fear? Why or why not? Justify your answer using probability.
+
+If I use the wormhole 2 times a day, disregarding holidays and weekends thats 365*2 = 730 uses per year. Assuming I use work for 50 years that is 36,500 uses in my lifetime. If something were to happen once out of the 36,500 trips it would have a probability of 0.00274%. According to the distribution I have a 0.00274% chance of being in the wormhole for more than 1.05 seconds
+
+Integral(10*e^-10x, p to infinity) = (-e^(-10x), p to infinity) = -e^(-10*infinity) - (-e^-10*p) = e^-10*p - 0
+solve this equatioin for 0.0000274
+e^-10*p = 0.0000274
+-10*p = ln(0.0000274)
+p = ln(0.0000274)/-10
+p = 1.05
+
+So only once in my lifetime would I be in the wormhole for just more than a second, Being stuck for more than a week or even longer is such an tiny possibility it is nothing to worry about.

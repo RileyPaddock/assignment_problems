@@ -1,0 +1,38 @@
+
+Compute the likelihood function  L(k|HHHHT HHHHH)  where  P(H)=k.  Remember that the likelihood is just the probability of getting the result  HHHHT HHHHH  under the assumption that  P(H)=k.  Your answer should be expressed in terms of  k. 
+
+L(k | HHHHT HHHHH) = P(H)*P(H)*P(H)*P(H)*P(T)*P(H)*P(H)*P(H)*P(H)*P(H)* = 
+k^4*(1-k)*k^5 = k^9-k^10
+"Normalize" the likelihood function by multiplying it by some constant  c  such that it integrates to  1.  That is, find the constant  c  such that
+integral(c⋅L(k|HHHHT HHHHH), 0 to 1)=1.
+c * integral(k^9 - k^10, 0 to 1) = c* (k^10/10 - k^11/11, 0 to 1) = c*(1/10 - 1/11)
+c* 1/110 = 1
+c = 110
+
+This way, we can treat  c⋅L  as a probability distribution for  k: 
+p(k)=110 * k^9 - k^10
+ 
+What is the most probable value of  k?  In other words, what is value of  k  at which  p(k)  reaches a maximum? USE THE FIRST OR SECOND DERIVATIVE TEST.
+dp/dk = 990k^8 - 1100k^9
+990k^8 - 1100k^9 = 0
+110k^8(9  - 10k) = 0
+9 - 10k = 0
+k = 9/10
+
+What is the probability that the coin is biased at all? In other words, what is  P(k>0.5)? 
+P(k > 0.5) = integral(110k^9 - 110k^10, 0.5 to 1)=
+(11k^10 - 10k^11, 0.5 to 1) = (11 - 10)-(11/1024 - 10/2048) = 1-3/512 = 509/512 = 99.4%
+
+What is the probability that the coin is biased with  0.85<P(H)<0.95? 
+P(0.85 < H < 0.95) = Integral(110k^9 - 110k^10, 0.85 to 0.95) = 
+(11k^10 - 10k^11, 0.85 to 0.95) = 
+[11(0.95)^10 - 10(0.95)^11] - [11(0.95)^10 - 10(0.95)^11] = 
+0.898 - 0.492 = 0.406
+40.6%
+
+Fill in the blank: you can be  95%  sure that  P(H)  is at least  0.636.
+P(k > 0.5) = integral(110k^9 - 110k^10, 0.5 to 1)=
+(11k^10 - 10k^11, y to 1) = (11 - 10)-(11y^10 - 10y^11) = 1-y^10(11-10y) 
+1-y^10(11-y) = 0.95
+y^10(11-y) = 0.05
+y = 0.636

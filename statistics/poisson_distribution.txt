@@ -1,0 +1,59 @@
+PART A (1 point per correct answer with supporting work)
+
+Consider the Poisson distribution defined by
+p(x)=[2^x * e^(-2)]/x!
+ 
+A. Show that this is a valid probability distribution, i.e. all the probability sums to  1. 
+
+sum(p(x), 0 to infinity) = Sum((2^x/x!) * e^(-2), 0 to infinity). 
+But Sum(2^x/x!, 0 to infinity) = e^2
+So Sum((2^x/x!) * e^(-2), 0 to infinity) = e^2 * e^-2 = e^0 = 1
+p(x) is a valid distribution
+
+Given that  X∼p2,  compute  P(10<X≤12).  Write your answer in closed form, as simplified as possible (but don't expand out factorials). Pay close attention to the "less than" vs "less than or equal to" symbols.
+P(10<X≤12) = Sum(p(x), 11 to 12) = Sum((2^x/x!) * e^(-2), 11 to 12) = 
+e^(-2) * ((12*2^11 + 2^12)/12!)
+
+Given that  X∼p2,  compute  E[X].  Using the Mclaurin series for  e^z,  your answer should come out to a nice clean integer.
+E[X] = Sum(x*p(x), 0 to infinity) = Sum((x*2^x*e^(-2))/x!, 0 to infinity) = 
+Sum(2^x*e^-2/(x-1)!, 0 to in finity) = Sum(2^(x-1)/(x-1)!) * Sum(2 * e^-2) = 
+e^2 * 2 * e^-2 = 2
+
+Given that  X∼p2,  compute  Var[X].  Using the Mclaurin series for  e^z,  your answer should come out to a nice clean integer.
+Var[x] = Sum((x-E[X])^2 * p(x), 0 to infinity) = 
+Sum((x-2)^2 * (2^x * e^(-2))/x!, 0 to infinity)  = 
+Sum(x^2*p(x),0 to infinity) - Sum(4x*p(x), 0 to infinity) + Sum(4*p(x), 0 to infinity) = 
+Sum((x*2^x*e^(-2))/(x-1)!, 0 to in finity) = 6
+-
+Sum((4x*2^x*e^-2)/x!, 0 to infinity) = 8
++
+Sum(4*2^x*e^-2/x!, 0 to infinity) = 4
+6-8+4 = 0
+Var[X] = 2
+
+PART B (1 point per correct answer with supporting work)
+
+pλ(x)=(λ^x*e^-λ)/x!
+ 
+Show that this is a valid probability distribution, i.e. all the probability sums to  1. 
+So Sum((λ^x/x!) * e^(-λ), 0 to infinity) = e^λ * e^-λ = e^0 = 1
+
+Given that  X∼pλ,  compute  P(10<X≤12).  Write your answer in closed form, as simplified as possible (but don't expand out factorials).
+Sum((λ^x/x!) * e^(-λ), 11 to 12) = e^(-λ) * ((12*λ^11 + λ^12)/12!)
+
+Given that  X∼pλ,  compute  E[X].  Using the Mclaurin series for  ez,  your answer should come out to a nice clean integer.
+E[X] = Sum(x*p(x), 0 to infinity) = Sum((x*λ^x*e^(-λ))/x!, 0 to infinity) = 
+Sum(λ^x*e^-λ/(x-1)!, 0 to in finity) = Sum(λ^(x-1)/(x-1)!) * Sum(λ * e^-λ) = 
+e^λ * λ * e^-λ = λ
+
+Given that  X∼pλ,  compute  Var[X].  Using the Mclaurin series for  ez,  your answer should come out to a nice clean integer.
+Var[x] = Sum((x-E[X])^2 * p(x), 0 to infinity) = 
+Sum((x-λ)^2 * (λ^x * e^(-λ))/x!, 0 to infinity)  = 
+Sum(x^2*p(x),0 to infinity) - Sum(2λx*p(x), 0 to infinity) + Sum(λ^2*p(x), 0 to infinity) = 
+Sum((x^2*λ^x*e^(-λ))/x!, 0 to in finity) = λ^2 + λ
+-
+Sum((2λx*λ^x*e^-λ)/x!, 0 to infinity) = λ^3
++
+Sum(λ^2*λ^x*e^-λ/x!, 0 to infinity) = λ^2
+λ^2 + λ - λ^3 + λ^2 = 2(λ^2) + λ - λ^3
+Var[X] = 2(λ^2) + λ - λ^3
