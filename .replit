@@ -1,2 +1,2 @@
 language = "python3"
-run = "python statistics/assignment_41_statistics.py"
+run = "python euler_estimator/test_euler_estimator.py"
