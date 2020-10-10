@@ -1,2 +1,2 @@
 language = "python3"
-run = "python euler_estimator/test_euler_estimator.py"
+run = "python binary_search/binary_search.py"
