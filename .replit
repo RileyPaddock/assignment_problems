@@ -1,2 +1,2 @@
 language = "python3"
-run = "python binary_search/binary_search.py"
+run = "python quicksort.py"

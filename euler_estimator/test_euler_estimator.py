@@ -76,19 +76,20 @@ from euler_estimator import EulerEstimator
 #(10.88, 3.25, 11.86)
 # euler.plot([-5,5], step_size = 0.1, filename = 'plot.png')
 
-# euler = EulerEstimator(
-#                 derivatives = [
-#                     (lambda x: 0.6*x[0] - 0.05*x[0]*x[1]),
-#                     (lambda x: -0.9*x[1] + 0.02*x[0]*x[1])
-#                     ],
-#                 point = (0,(100,10))
-#             )
 euler = EulerEstimator(
                 derivatives = [
-                    (lambda x: -0.0003*x[1]*x[0]),
-                    (lambda x: 0.0003*x[1]*x[0] - 0.02*x[1]),
-                    (lambda x: 0.02*x[1])
+                    (lambda x: 0.6*x[0] - 0.05*x[0]*x[1]),
+                    (lambda x: -0.9*x[1] + 0.02*x[0]*x[1])
                     ],
-                point = (0,(1000,1,0))
+                point = (0,(100,10))
             )
-euler.plot([0,365], step_size = 0.001, filename = 'plot.png')
+# euler = EulerEstimator(
+#                 derivatives = [
+#                     (lambda x: -0.0003*x[1]*x[0]),
+#                     (lambda x: 0.0003*x[1]*x[0] - 0.02*x[1] - 0.01*x[1]),
+#                     (lambda x: 0.02*x[1]),
+#                     (lambda x: 0.01*x[1])
+#                     ],
+#                 point = (0,(1000,1,0,0))
+#             )
+euler.plot([0,100], step_size = 0.001, filename = 'plot.png')
