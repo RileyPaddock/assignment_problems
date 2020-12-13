@@ -1,16 +1,12 @@
 def f(x):
-    return 1/x**5
+    return 1/x**4
 
 def p(x):
-    return 1442309/x**5
+    return 922741.86667/x**4
 
-output =[]
-for x in range(1,26):
-    output.append(f(x))
-    #print(sum(output))
 
 output = []
-k = 25
+k = 68
 while sum(output) < 0.95:
     output.append(p(k))
     k += 1

@@ -1,2 +1,2 @@
 language = "python3"
-run = "python quicksort.py"
+run = "python euler_estimator/test_euler_estimator.py"
