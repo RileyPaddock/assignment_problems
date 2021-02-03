@@ -9,5 +9,5 @@ reverseList [] = []
 reverseList (x:xs) = reverseList xs ++ [x]  
 
 tail' :: (Num i, Ord i) => i -> [a] -> [a]  
-tail' n x = reverseList (take' n (reverseList x))
+tail' n = reverseList .take' n .reverseList
 main = print(tail' 4 [8, 3, -1, 2, -5, 7])
