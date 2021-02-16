@@ -40,7 +40,7 @@ int main()
     assert(seqSum(8)==170);
     assert(extendedSeqSum(2)==1);
     assert(extendedSeqSum(3)==5);
-
+    std::cout << extendedSeqSum(4);
     std::cout << "Success!";
 
     return 0;
