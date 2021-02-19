@@ -1,34 +1,54 @@
 # include <iostream>
 # include <cassert>
 
-int kthNumber(int k)
+int seqSum(int n)
 {
-    if(k==0){
-        return 0;
-    }else if(k==1){
-        return 1;
-    }else{
-        return kthNumber(k-1) + (2*kthNumber(k-2));
-    };
-}
+    int terms[n+1];
+    terms[0] = 0;
+    terms[1] = 1;
 
-int seqSum(int k)
-{
+    for(int i = 2; i<=n;i++){
+        terms[i] = terms[i-1] + 2*terms[i-2];
+    };
+
     int sum = 0;
-    int kEntries [k+1];
-    for(int i = 0; i<=k;i++){
-        kEntries[i] = kthNumber(i);
+    for(int i = 0; i <= n; i++){
+        sum += terms[i];
     };
-    for(int j = 0; j<= k; j++){
-        sum += kEntries[j];
-    };
+
     return sum;
 }
 
-int extendedSeqSum(int k)
+
+int extendedSeqSum(int n)
 {
-    int sum = kthNumber(k);
-    return seqSum(sum);
+    int terms[n+1];
+    terms[0] = 0;
+    terms[1] = 1;
+
+    for(int i = 2; i<=n;i++){
+        terms[i] = terms[i-1] + 2*terms[i-2];
+    };
+
+    int val_of_n_term = terms[n];
+
+    int extendedTerms[val_of_n_term+1];
+
+    for(int i = 0; i<=val_of_n_term;i++){
+        if(i < n){
+            extendedTerms[i] = terms[i];
+        }else{
+            extendedTerms[i] = extendedTerms[i-1] + 2*extendedTerms[i-2];
+        };
+        
+    };
+
+    int sum = 0;
+    for(int i = 0; i <= val_of_n_term; i++){
+        sum += extendedTerms[i];
+    };
+
+    return sum;
 }
 
 int main()
