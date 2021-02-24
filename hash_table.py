@@ -1,28 +1,52 @@
 array = [[], [], [], [], []] # has 5 empty "buckets"
 
-def hash_function(string):
-    string_weight = sum([ord(char)-97 for char in string])
-    return string_weight % 5
+class HashTable:
+    def __init__(self,num_buckets):
+        self.num_buckets = num_buckets
+        self.buckets = [[] for _ in range(num_buckets)]
 
-def insert(array, key, value):
-    index = hash_function(key)
-    array[index].append((key,value))
+    def hash_function(self,string):
+        string_weight = sum([ord(char)-97 for char in string])
+        return string_weight % self.num_buckets
 
-def find(array, key):
-    index = hash_function(key)
-    for data in array[index]:
-        if data[0] == key:
-            return data[1]
+    def insert(self,key, value):
+        index = self.hash_function(key)
+        self.buckets[index].append((key,value))
+
+    def find(self,key):
+        index = self.hash_function(key)
+        for data in self.buckets[index]:
+            if data[0] == key:
+                return data[1]
 
 
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
-for i, char in enumerate(alphabet):
-    key = 'someletters'+char
-    value = [i, i**2, i**3]
-    insert(array, key, value)
+ht = HashTable(num_buckets = 3)
+print(ht.buckets)
+#[[], [], []]
+print(ht.hash_function('cabbage'))
+#2    (because 2+0+1+1+0+6+4 mod 3 = 14 mod 3 = 2)
 
-for i, char in enumerate(alphabet):
-    key = 'someletters'+char
-    output_value = find(array, key)
-    desired_value = [i, i**2, i**3]
-    assert output_value == desired_value
+ht.insert('cabbage', 5)
+print(ht.buckets)
+#[[], [], [('cabbage',5)]]
+
+ht.insert('cab', 20)
+print(ht.buckets)
+#[[('cab', 20)], [], [('cabbage',5)]]
+
+ht.insert('c', 17)
+print(ht.buckets)
+#[[('cab', 20)], [], [('cabbage',5), ('c',17)]]
+
+ht.insert('ac', 21)
+print(ht.buckets)
+#[[('cab', 20)], [], [('cabbage',5), ('c',17), ('ac', 21)]]
+
+print(ht.find('cabbage'))
+#5
+print(ht.find('cab'))
+#20
+print(ht.find('c'))
+#17
+print(ht.find('ac'))
+#21
