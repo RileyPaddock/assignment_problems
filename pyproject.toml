@@ -8,6 +8,7 @@ authors = ["repl.it user <replituser@example.com>"]
 python = "^3.8"
 dataframe = "^0.2.1"
 matrix = "^2.0.1"
+pandas = "^1.2.4"
 
 [tool.poetry.dev-dependencies]
 
